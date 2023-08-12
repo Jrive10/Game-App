@@ -8,16 +8,23 @@
   <title>Document</title>
 </head>
 <body>
-  <div class="menu-container">
+  <div class="menu-container" id="menu-container ">
     <h1>Asteroid Blast</h1>
-    <p>Explanation of game goes here</p>
+    <p>Earth is no longer inhabitable. There is talk of a new Exoplanet! Fly past the asteriod belt to reach your destination before time runs out.Use the keypad to move and the the spacebar to shoot.</p>
     <div class="player-selection">
     <button id="player1">Player 1</button>
-    <button id="player2">Player 2</button>
+    
     </div>
     <button id="start">Start Game</button>
   </div>
-  <canvas id="game-canvas"></canvas>
+  <div class="game-over">
+    <h1>Game Over</h1>
+    <p>Your spaceship was destroyed. Your final score: <span id="final-score">0</span></p>
+    <button id="restart">Restart</button>
+  </div>
+  
+  <canvas id="game-canvas" width="600" height="600">
+  </canvas>
   <script src="js/app.js"></script>
   
 </body>
