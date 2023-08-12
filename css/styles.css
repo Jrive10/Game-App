@@ -133,7 +133,7 @@ body {
   z-index: -1;
 }
 
-.game-over {
+/* .game-over {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -171,4 +171,23 @@ body {
 
 .game-over button:hover {
   background-color: #2980b9;
+} */
+.game-over {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+}
+.game-over h1,
+.game-over p {
+  color: white;
 }

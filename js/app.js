@@ -1,3 +1,5 @@
+//wait for the dom to load
+document.addEventListener('DOMContentLoaded', () => {
 //Get the canavs and context
 const canvas = document.getElementById('game-canvas');
 const ctx = canvas.getContext('2d');
@@ -205,17 +207,49 @@ function checkCollision(asteroidX, asteroidY) {
       asteroids.splice(i, 1);
     }
   }
+  if(playerLives <= 0){
+    showGameOver()
+  }
 
   }
 
 //reset the game
 function resetGame() {
   if (playerLives <= 0) {
-    gameStarted = false;
-    canvas.style.display = 'none';
-    document.querySelector('.menu-container').style.display = 'flex';
-    playerLives = 2;
+    showGameOver()
+    // gameStarted = false;
+    // canvas.style.display = 'none';
+    // document.querySelector('.menu-container').style.display = 'flex';
+    // playerLives = 2;
   }
+}
+
+//game over 
+// Game over
+function showGameOver() {
+  gameStarted = false;
+  canvas.style.display = 'none';
+  const gameOverScreen = document.querySelector('.game-over');
+  const finalScoreElement = document.getElementById('final-score');
+  finalScoreElement.textContent = playerScore;
+  gameOverScreen.style.display = 'flex';
+
+  const restartButton = document.getElementById('restart');
+  
+  // Remove existing event listeners
+  restartButton.removeEventListener('click', restartGame);
+  
+  // Add the event listener
+  restartButton.addEventListener('click', restartGame);
+}
+
+// Function to restart the game
+function restartGame() {
+  const gameOverScreen = document.querySelector('.game-over');
+  gameOverScreen.style.display = 'none';
+  playerLives = 2;
+  playerScore = 0;
+  startGame();
 }
 
 //updat the hud
@@ -235,6 +269,6 @@ function init() {
 
 // Run the game
 init();
-
+});
 
 
